@@ -64,6 +64,9 @@ function dragEnd() {
     if (min <= left && left <= max) {
         BAR_BLOCK.style.backgroundColor = 'red'
         BAR_BLOCK.innerText = 'success'
+        BAR_BLOCK.removeEventListener('mousedown', dragStart)
+        window.removeEventListener('mousemove', drag)
+        BAR.removeEventListener('mouseup', dragEnd)
     } else {
         BAR_BLOCK.innerText = 'error'
         render()
